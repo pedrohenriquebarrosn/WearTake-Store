@@ -38,4 +38,4 @@ Foram eliminados problemas na remoção de itens (antes removia sempre o primeir
 
 A recuperação mantém o caráter didático em vez de acrescentar desnecessariamente React, Supabase ou backend. As melhorias de 2026 devem ser descritas como **modernização do projeto original**, não como trabalho desenvolvido integralmente em 2022.
 
-**Publicação:** a criação de um novo projeto Vercel nesta conexão apresentou problema de autorização (403). Até haver deploy comprovado, use o GitHub como referência e não afirme que existe uma demo pública nova.
+**Preview hospedado:** https://weartake-store-preview.vercel.app/ — Vercel confirmou deploy READY e domínio associado, com autenticação de visitante desativada. O site ainda não foi validado em navegador externo independente; os testes automatizados de funcionalidade e mobile passaram no GitHub Actions.
