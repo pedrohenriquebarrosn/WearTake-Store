@@ -105,3 +105,10 @@ h1 { font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.15; letter-spacing: 
   .product-card { transition: none; }
   .product-card:hover { transform: none; }
 }
+
+/* Language navigation preserves filters and cart contents. */
+.language-control{display:flex;align-items:center;gap:4px;padding:4px;border:1px solid #e1ddf0;border-radius:10px;background:#faf9ff;flex-shrink:0}
+.language-control button{border:0;border-radius:7px;padding:9px 12px;font:700 12px inherit;background:transparent;color:#483670;cursor:pointer;min-height:38px;min-width:40px}
+.language-control button[aria-pressed="true"]{background:#30215d;color:#fff}
+.language-control button:focus-visible{outline:2px solid #7753d8;outline-offset:2px}
+@media(max-width:720px){.header-inner{flex-wrap:wrap}.language-control{order:2}.category-nav{order:3;width:100%;overflow-x:auto}}
