@@ -2,7 +2,7 @@
 
 **A responsive product catalog and interactive shopping cart built with HTML, CSS, and vanilla JavaScript.**
 
-[**↗ See live preview**](https://weartake-store-preview-b8u4grwle-pedrohenriquebarrosns-projects.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store)
+[**↗ See live preview**](https://weartake-store-preview.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store)
 
 ## Overview
 
