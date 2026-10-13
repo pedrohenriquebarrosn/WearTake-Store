@@ -2,7 +2,7 @@
 
 **A responsive product catalog and interactive shopping cart built with HTML, CSS, and vanilla JavaScript.**
 
-[**↗ See live preview**](https://weartake-store-preview-b8u4grwle-pedrohenriquebarrosns-projects.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store/tree/review/i18n-pt-en-20261013)
+[**↗ See live preview**](https://weartake-store-preview-b8u4grwle-pedrohenriquebarrosns-projects.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store)
 
 ## Overview
 
@@ -23,12 +23,11 @@ HTML5 · CSS3 · JavaScript (ES6+) · localStorage · Playwright
 
 ## Explore and run locally
 
-The live preview reflects [the updated implementation branch](https://github.com/pedrohenriquebarrosn/WearTake-Store/tree/review/i18n-pt-en-20261013). The default `master` branch retains an earlier educational version.
+The default `master` branch contains the reviewed storefront, automated browser tests, and bilingual cart implementation. The hosted preview is a separate deployment and should be checked against the current release.
 
 ```bash
 git clone https://github.com/pedrohenriquebarrosn/WearTake-Store.git
 cd WearTake-Store
-git switch review/i18n-pt-en-20261013
 python3 -m http.server 4173
 ```
 
