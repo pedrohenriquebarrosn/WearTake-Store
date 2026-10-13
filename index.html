@@ -13,11 +13,12 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="WearTake, início">Wear<span>Take</span><span class="brand-mark">.</span></a>
+      <div class="language-control" role="group" aria-label="Language / Idioma"><button type="button" data-language="pt" aria-pressed="true">PT</button><button type="button" data-language="en" aria-pressed="false">EN</button></div>
       <nav class="category-nav" aria-label="Categorias de produtos">
-        <button type="button" class="category-button active" data-category="Todos" aria-pressed="true">Todos</button>
-        <button type="button" class="category-button" data-category="Acessórios" aria-pressed="false">Acessórios</button>
-        <button type="button" class="category-button" data-category="Camisetas" aria-pressed="false">Camisetas</button>
-        <button type="button" class="category-button" data-category="Jaquetas" aria-pressed="false">Jaquetas</button>
+        <button type="button" class="category-button active" data-category="Todos" aria-pressed="true" data-i18n="Todos">Todos</button>
+        <button type="button" class="category-button" data-category="Acessórios" aria-pressed="false" data-i18n="Acessórios">Acessórios</button>
+        <button type="button" class="category-button" data-category="Camisetas" aria-pressed="false" data-i18n="Camisetas">Camisetas</button>
+        <button type="button" class="category-button" data-category="Jaquetas" aria-pressed="false" data-i18n="Jaquetas">Jaquetas</button>
       </nav>
     </div>
   </header>
@@ -25,35 +26,35 @@
     <section class="catalog" aria-labelledby="catalog-title">
       <div class="catalog-heading">
         <div>
-          <p class="eyebrow">Estilo para o dia a dia</p>
-          <h1 id="catalog-title">Explore a coleção</h1>
-          <p class="intro">Peças e acessórios para descobrir, pesquisar e adicionar à sacola.</p>
+          <p class="eyebrow" data-i18n="Estilo para o dia a dia">Estilo para o dia a dia</p>
+          <h1 id="catalog-title" data-i18n="Explore a coleção">Explore a coleção</h1>
+          <p class="intro" data-i18n="Peças e acessórios para descobrir, pesquisar e adicionar à sacola.">Peças e acessórios para descobrir, pesquisar e adicionar à sacola.</p>
         </div>
         <span class="catalog-count" id="catalog-count" role="status" aria-live="polite">6 produtos</span>
       </div>
       <div class="products" id="products"></div>
-      <p class="empty-results" id="empty-results" hidden>Nenhum produto encontrado. Experimente outra busca ou categoria.</p>
+      <p class="empty-results" id="empty-results" data-i18n="Nenhum produto encontrado. Experimente outra busca ou categoria." hidden>Nenhum produto encontrado. Experimente outra busca ou categoria.</p>
     </section>
     <aside class="sidebar" aria-label="Pesquisa e carrinho">
       <section class="panel search-panel" aria-labelledby="search-title">
-        <h2 id="search-title">Encontre seu produto</h2>
-        <label for="product-search">Pesquisar na vitrine</label>
-        <input type="search" id="product-search" placeholder="Nome ou descrição" autocomplete="off">
+        <h2 id="search-title" data-i18n="Encontre seu produto">Encontre seu produto</h2>
+        <label for="product-search" data-i18n="Pesquisar na vitrine">Pesquisar na vitrine</label>
+        <input type="search" id="product-search" placeholder="Nome ou descrição" data-i18n-placeholder="Nome ou descrição" autocomplete="off">
       </section>
       <section class="panel cart-panel" aria-labelledby="cart-title">
         <div class="cart-heading">
-          <h2 id="cart-title">Sua sacola</h2>
+          <h2 id="cart-title" data-i18n="Sua sacola">Sua sacola</h2>
           <span class="cart-count" id="cart-count" aria-live="polite">0</span>
         </div>
         <ul id="cart-items" class="cart-items" aria-label="Produtos no carrinho"></ul>
-        <div class="cart-empty" id="cart-empty"><span aria-hidden="true">🛍️</span><strong>Sacola vazia</strong><p>Adicione produtos para começar.</p></div>
+        <div class="cart-empty" id="cart-empty"><span aria-hidden="true">🛍️</span><strong data-i18n="Sacola vazia">Sacola vazia</strong><p data-i18n="Adicione produtos para começar.">Adicione produtos para começar.</p></div>
         <div class="cart-footer">
-          <p><span>Quantidade</span><strong id="cart-quantity">0</strong></p>
+          <p><span data-i18n="Quantidade">Quantidade</span><strong id="cart-quantity">0</strong></p>
           <p class="cart-total"><span>Total</span><strong id="cart-total">R$ 0,00</strong></p>
-          <button class="clear-cart" id="clear-cart" type="button" disabled>Limpar sacola</button>
+          <button class="clear-cart" id="clear-cart" type="button" data-i18n="Limpar sacola" disabled>Limpar sacola</button>
         </div>
       </section>
-      <p class="education-note">Projeto educacional. Produtos e preços ilustrativos; não há pedidos nem pagamentos reais.</p>
+      <p class="education-note" data-i18n="Projeto educacional. Produtos e preços ilustrativos; não há pedidos nem pagamentos reais.">Projeto educacional. Produtos e preços ilustrativos; não há pedidos nem pagamentos reais.</p>
     </aside>
   </main>
 </body>
