@@ -8,6 +8,7 @@ const sites = {
   burger: 'https://kenzie-burguer-v2-template-pedro-henrique-eoyd-c5ec30mk6.vercel.app/?lang=pt',
   weartake: 'https://weartake-store-preview-b8u4grwle-pedrohenriquebarrosns-projects.vercel.app/?lang=pt'
 };
+(async () => {
 fs.mkdirSync('test-results/pinned-live', {recursive:true});
 const browser = await chromium.launch({headless:true});
 async function run(name, width, fn){
@@ -75,3 +76,5 @@ await browser.close();
 fs.writeFileSync('test-results/pinned-live/summary.json',JSON.stringify(results,null,2));
 console.log('PINNED_LIVE_QA_SUMMARY',JSON.stringify(results));
 if(results.some(r=>r.result==='FAIL')) process.exitCode=1;
+
+})().catch(error => { console.error(error); process.exitCode=1; });
