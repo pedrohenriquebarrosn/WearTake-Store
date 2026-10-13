@@ -4,6 +4,7 @@ on:
     branches:
       - fix/restore-store-20261012
       - review/i18n-pt-en-20261013
+      - master
   workflow_dispatch:
 permissions:
   contents: read
