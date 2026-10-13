@@ -19,22 +19,22 @@ test("catalog renders six products, category navigation and combined search", as
 
 test("cart maintains independent items and prices across reload and removals", async ({page}) => {
   await page.goto("/");
-  await page.getByRole("button",{name:"Adicionar Lightweight Jacket à sacola"}).click();
-  await page.getByRole("button",{name:"Adicionar Black Hat à sacola"}).click();
-  await page.getByRole("button",{name:"Adicionar Mask à sacola"}).click();
+  await page.locator('[data-add-product="1"]').click();
+  await page.locator('[data-add-product="2"]').click();
+  await page.locator('[data-add-product="3"]').click();
   await expect(page.locator("#cart-quantity")).toHaveText("3");
   await expect(page.locator("#cart-total")).toContainText("240,00");
-  await page.getByRole("button",{name:"Remover Black Hat da sacola"}).click();
+  await page.locator('[data-remove="2"]').click();
   await expect(page.locator("#cart-items li")).toHaveCount(2);
   await expect(page.locator("#cart-items")).not.toContainText("Black Hat");
   await expect(page.locator("#cart-total")).toContainText("140,00");
   await page.reload();
   await expect(page.locator("#cart-total")).toContainText("140,00");
   await expect(page.locator("#cart-items li")).toHaveCount(2);
-  await page.getByRole("button",{name:"Aumentar quantidade de Mask"}).click();
+  await page.locator('[data-increase="3"]').click();
   await expect(page.locator("#cart-quantity")).toHaveText("3");
   await expect(page.locator("#cart-total")).toContainText("180,00");
-  await page.getByRole("button",{name:"Diminuir quantidade de Lightweight Jacket"}).click();
+  await page.locator('[data-decrease="1"]').click();
   await expect(page.locator("#cart-total")).toContainText("80,00");
   await expect(page.locator("#cart-items li")).toHaveCount(1);
   await page.getByRole("button",{name:"Limpar sacola"}).click();
@@ -51,7 +51,7 @@ test("store is usable on mobile and images load",async({page})=>{
   await expect(page.locator(".product-card")).toHaveCount(6);
   const loaded=await page.locator(".product-image img").first().evaluate(img=>img.complete && img.naturalWidth>0);
   expect(loaded).toBe(true);
-  await page.getByRole("button",{name:"Adicionar Lightweight Jacket à sacola"}).click();
+  await page.locator('[data-add-product="1"]').click();
   await expect(page.locator("#cart-total")).toContainText("100,00");
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
   expect(overflow).toBe(false);
