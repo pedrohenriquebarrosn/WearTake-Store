@@ -1,5 +1,53 @@
 // WearTake: intentionally framework-free educational storefront.
 // Illustrative catalog only: no orders, payment, accounts or inventory.
+const strings = {
+  en: {
+    "Todos":"All","Acessórios":"Accessories","Camisetas":"T-shirts","Jaquetas":"Jackets",
+    "Estilo para o dia a dia":"Style for every day","Explore a coleção":"Explore the collection",
+    "Peças e acessórios para descobrir, pesquisar e adicionar à sacola.":"Clothing and accessories to discover, search and add to your bag.",
+    "Nenhum produto encontrado. Experimente outra busca ou categoria.":"No products found. Try another search or category.",
+    "Encontre seu produto":"Find your next piece","Pesquisar na vitrine":"Search the store",
+    "Nome ou descrição":"Name or description","Sua sacola":"Your bag","Sacola vazia":"Your bag is empty",
+    "Adicione produtos para começar.":"Add a product to get started.","Quantidade":"Quantity",
+    "Limpar sacola":"Clear bag","Projeto educacional. Produtos e preços ilustrativos; não há pedidos nem pagamentos reais.":"Educational demo. Fictional items and prices; no real orders or payments.",
+    "Adicionar":"Add","Remover":"Remove","Diminuir quantidade de ":"Decrease quantity of ","Aumentar quantidade de ":"Increase quantity of ",
+    "Adicionar ":"Add "," à sacola":" to the bag"," da sacola":" from the bag",
+    "Jaqueta leve com estilo vibrante para os dias mais frios.":"Lightweight jacket with a vivid look for colder days.",
+    "Gorro de malha confortável para o dia a dia.":"Comfortable knit beanie for everyday wear.",
+    "Máscara de tecido com ajuste confortável.":"Comfortable fit fabric face mask.",
+    "Camiseta preta versátil, com corte clássico.":"Versatile black T-shirt with a classic fit.",
+    "Camiseta branca de manga curta, essencial no guarda-roupa.":"Essential short-sleeve white T-shirt.",
+    "Jaqueta prática e leve para dias de clima variável.":"Practical lightweight jacket for unpredictable weather."
+  },
+  pt: {
+    "Lightweight Jacket":"Jaqueta leve","Black Hat":"Gorro preto","Mask":"Máscara",
+    "T-Shirt":"Camiseta preta","Short-Sleeve T-Shirt":"Camiseta branca",
+    "Champion Packable Jacket":"Jaqueta leve Champion"
+  }
+};
+function readLanguage() {
+  const query = new URLSearchParams(location.search).get("lang");
+  if (query === "pt" || query === "en") return query;
+  try { const stored=localStorage.getItem("weartake_language"); if (stored === "pt" || stored === "en") return stored; } catch {}
+  return "pt";
+}
+let language = readLanguage();
+const tr = (key) => strings[language]?.[key] || key;
+function money(value) {
+  return new Intl.NumberFormat(language === "en" ? "en-US" : "pt-BR", {style:"currency",currency:"BRL"}).format(value);
+}
+function updateLanguage(next) {
+  language = next;
+  document.documentElement.lang = next === "en" ? "en" : "pt-BR";
+  document.title = next === "en" ? "WearTake | Fashion storefront demo" : "WearTake | Vitrine de moda";
+  document.querySelectorAll("[data-i18n]").forEach(e => { e.textContent = tr(e.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(e => { e.placeholder = tr(e.dataset.i18nPlaceholder); });
+  document.querySelectorAll("[data-language]").forEach(e => e.setAttribute("aria-pressed",String(e.dataset.language === next)));
+  const url = new URL(location.href); url.searchParams.set("lang",next); history.replaceState(history.state,"",url);
+  try {localStorage.setItem("weartake_language",next);} catch {}
+  renderProducts(); renderCart();
+}
+
 const products = [
   { id: 1, img: "./img/jaqueta.svg", name: "Lightweight Jacket", description: "Jaqueta leve com estilo vibrante para os dias mais frios.", price: 100, category: "Jaquetas" },
   { id: 2, img: "./img/gorro.svg", name: "Black Hat", description: "Gorro de malha confortável para o dia a dia.", price: 100, category: "Acessórios" },
@@ -9,7 +57,7 @@ const products = [
   { id: 6, img: "./img/moletom.svg", name: "Champion Packable Jacket", description: "Jaqueta prática e leve para dias de clima variável.", price: 100, category: "Jaquetas" },
 ];
 
-const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+
 const storageKey = "weartake_demo_cart_v1";
 const nodes = {
   products: document.querySelector("#products"),
@@ -64,7 +112,7 @@ function makeElement(tag, className, text) {
 function renderProducts() {
   const matches = products.filter((product) => {
     const matchesCategory = activeCategory === "Todos" || product.category === activeCategory;
-    const searchable = normalize(product.name + " " + product.description + " " + product.category);
+    const searchable = normalize(product.name + " " + tr(product.name) + " " + product.description + " " + tr(product.description) + " " + product.category + " " + tr(product.category));
     return matchesCategory && searchable.includes(normalize(searchText));
   });
   nodes.products.replaceChildren();
@@ -73,28 +121,28 @@ function renderProducts() {
     const imageBox = makeElement("div", "product-image");
     const image = makeElement("img");
     image.src = product.img;
-    image.alt = product.name;
+    image.alt = tr(product.name);
     image.loading = "lazy";
     image.width = 250;
     image.height = 200;
     imageBox.append(image);
 
     const content = makeElement("div", "product-content");
-    const category = makeElement("span", "product-category", product.category);
-    const title = makeElement("h2", "product-title", product.name);
-    const description = makeElement("p", "product-description", product.description);
+    const category = makeElement("span", "product-category", tr(product.category));
+    const title = makeElement("h2", "product-title", tr(product.name));
+    const description = makeElement("p", "product-description", tr(product.description));
     const footer = makeElement("div", "product-footer");
-    const price = makeElement("strong", "product-price", currency.format(product.price));
-    const button = makeElement("button", "add-to-cart", "Adicionar");
+    const price = makeElement("strong", "product-price", money(product.price));
+    const button = makeElement("button", "add-to-cart", tr("Adicionar"));
     button.type = "button";
     button.dataset.addProduct = String(product.id);
-    button.setAttribute("aria-label", "Adicionar " + product.name + " à sacola");
+    button.setAttribute("aria-label", tr("Adicionar ") + tr(product.name) + tr(" à sacola"));
     footer.append(price, button);
     content.append(category, title, description, footer);
     article.append(imageBox, content);
     nodes.products.append(article);
   }
-  nodes.results.textContent = matches.length + (matches.length === 1 ? " produto" : " produtos");
+  nodes.results.textContent = matches.length + (language === "en" ? (matches.length === 1 ? " product" : " products") : (matches.length === 1 ? " produto" : " produtos"));
   nodes.emptyResults.hidden = matches.length !== 0;
   for (const button of nodes.categories) {
     const active = button.dataset.category === activeCategory;
@@ -119,23 +167,23 @@ function renderCart() {
     image.width = 68;
     image.height = 68;
     const info = makeElement("div", "cart-info");
-    const name = makeElement("strong", "cart-product-name", product.name);
-    const amount = makeElement("span", "cart-product-price", currency.format(product.price));
+    const name = makeElement("strong", "cart-product-name", tr(product.name));
+    const amount = makeElement("span", "cart-product-price", money(product.price));
     const controls = makeElement("div", "quantity-controls");
     const decrease = makeElement("button", "quantity-button", "−");
     decrease.type = "button";
     decrease.dataset.decrease = String(product.id);
-    decrease.setAttribute("aria-label", "Diminuir quantidade de " + product.name);
+    decrease.setAttribute("aria-label", tr("Diminuir quantidade de ") + tr(product.name));
     const number = makeElement("span", "quantity-number", String(quantity));
     const increase = makeElement("button", "quantity-button", "+");
     increase.type = "button";
     increase.dataset.increase = String(product.id);
     increase.disabled = quantity >= 99;
-    increase.setAttribute("aria-label", "Aumentar quantidade de " + product.name);
-    const remove = makeElement("button", "remove-button", "Remover");
+    increase.setAttribute("aria-label", tr("Aumentar quantidade de ") + tr(product.name));
+    const remove = makeElement("button", "remove-button", tr("Remover"));
     remove.type = "button";
     remove.dataset.remove = String(product.id);
-    remove.setAttribute("aria-label", "Remover " + product.name + " da sacola");
+    remove.setAttribute("aria-label", tr("Remover") + " " + tr(product.name) + tr(" da sacola"));
     controls.append(decrease, number, increase, remove);
     info.append(name, amount, controls);
     item.append(image, info);
@@ -143,7 +191,7 @@ function renderCart() {
   }
   nodes.cartCount.textContent = String(count);
   nodes.cartQuantity.textContent = String(count);
-  nodes.cartTotal.textContent = currency.format(total);
+  nodes.cartTotal.textContent = money(total);
   nodes.cartEmpty.hidden = count !== 0;
   nodes.clearCart.disabled = count === 0;
 }
@@ -188,5 +236,5 @@ for (const button of nodes.categories) {
   });
 }
 
-renderProducts();
-renderCart();
+document.querySelectorAll("[data-language]").forEach(button => button.addEventListener("click", () => updateLanguage(button.dataset.language)));
+updateLanguage(language);
