@@ -51,7 +51,7 @@ for (const width of [1280,390]){
     await page.locator('.product-card').first().waitFor();
     const count=await page.locator('.product-card').count();
     if(count!==6) throw new Error('Expected 6 catalog products, saw '+count);
-    await page.getByRole('button',{name:'Adicionar Lightweight Jacket à sacola'}).click();
+    await page.locator('button[data-add-product="1"]').click();
     const total=await page.locator('#cart-total').innerText();
     if(!total.includes('100,00')) throw new Error('Unexpected cart amount: '+total);
     await page.reload();
