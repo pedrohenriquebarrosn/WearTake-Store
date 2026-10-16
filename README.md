@@ -4,6 +4,10 @@
 
 [**↗ See live preview**](https://weartake-store-preview.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store)
 
+**Project status:** Reviewed bilingual storefront on the default branch, with passing browser tests for filtering, cart interactions and local persistence. [Verification](https://github.com/pedrohenriquebarrosn/WearTake-Store/actions/runs/38476882022).
+
+**More work:** [Professional Portfolio 2026](https://portfolio-pedro-barros-2026-review.vercel.app/en) · [Versão em português](https://portfolio-pedro-barros-2026-review.vercel.app/pt)
+
 ## Overview
 
 WearTake is a fashion storefront exercise originally created during web-development training and modernized as a bilingual, framework-free portfolio project. It demonstrates interactive catalog behavior and persistent browser-local cart management.
@@ -23,7 +27,7 @@ HTML5 · CSS3 · JavaScript (ES6+) · localStorage · Playwright
 
 ## Explore and run locally
 
-The default `master` branch contains the reviewed storefront, automated browser tests, and bilingual cart implementation. The hosted preview is a separate deployment and should be checked against the current release.
+The default `master` branch contains the reviewed storefront, automated browser tests, and bilingual cart implementation. The linked application provides the published interactive preview; implementation and verification details are documented below.
 
 ```bash
 git clone https://github.com/pedrohenriquebarrosn/WearTake-Store.git
