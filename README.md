@@ -49,6 +49,6 @@ Open [http://localhost:4173](http://localhost:4173).
 
 ## About the developer
 
-**Pedro Henrique Barros Nascimento** — Full Stack Web Development training at Kenzie Academy Brasil; Business Administration coursework completed at UNIFG. Interested in applied AI, software development, and practical business solutions.
+**Pedro Henrique Barros Nascimento** — Business Administration graduate (UNIFG) with Full Stack Web Development training at Kenzie Academy Brasil. Interested in applied AI, software development, and practical business solutions.
 
 [GitHub](https://github.com/pedrohenriquebarrosn) · [LinkedIn](https://www.linkedin.com/in/pedro-henrique-barros-nascimento-2bb684251/) · [Portfolio EN](https://portfolio-pedro-barros-2026-review.vercel.app/en) · [Portfólio PT](https://portfolio-pedro-barros-2026-review.vercel.app/pt)
