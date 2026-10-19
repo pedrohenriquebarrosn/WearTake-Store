@@ -1,33 +1,35 @@
-# WearTake — Fashion Storefront
+# WearTake — Interactive Fashion Storefront
 
-**A responsive product catalog and interactive shopping cart built with HTML, CSS, and vanilla JavaScript.**
+**A responsive, bilingual storefront with product search, category filters, and a persistent shopping cart — built with vanilla JavaScript.**
 
-[**↗ See live preview**](https://weartake-store-preview.vercel.app/) · [**↗ Code on GitHub**](https://github.com/pedrohenriquebarrosn/WearTake-Store)
-
-**Project status:** Reviewed bilingual storefront on the default branch, with passing browser tests for filtering, cart interactions and local persistence. [Verification](https://github.com/pedrohenriquebarrosn/WearTake-Store/actions/runs/38476882022).
-
-**More work:** [Professional Portfolio 2026](https://portfolio-pedro-barros-2026-review.vercel.app/en) · [Versão em português](https://portfolio-pedro-barros-2026-review.vercel.app/pt)
+[**Launch the live app ↗**](https://weartake-store-preview.vercel.app/) · [**Professional portfolio ↗**](https://portfolio-pedro-barros-2026-review.vercel.app/en) · [**Browser tests ↗**](https://github.com/pedrohenriquebarrosn/WearTake-Store/actions/runs/38476882022)
 
 ## Overview
 
-WearTake is a fashion storefront exercise originally created during web-development training and modernized as a bilingual, framework-free portfolio project. It demonstrates interactive catalog behavior and persistent browser-local cart management.
+WearTake is a browser-based fashion shopping experience built with HTML, CSS, and JavaScript — no frontend framework required. Visitors can filter products, search the catalog, modify cart quantities, and return later to find their cart preserved locally.
 
-## Key features
+The original Full Stack training project was expanded into a bilingual, responsive implementation with improved cart logic and automated browser coverage.
 
-- Browse a six-product illustrative catalog with responsive images.
-- Filter by category and search products by text.
-- Add products to the cart, change quantities, or remove items.
-- Display item subtotals, shopping-cart quantity, and combined total.
-- Preserve cart contents across reloads using validated `localStorage` data.
-- Use a mobile-friendly layout and English/Portuguese interface.
+## Features
 
-## Technology stack
+- **Product discovery:** browse a six-item sample fashion catalog with responsive images.
+- **Category filtering and search:** narrow results by type or product name.
+- **Interactive cart:** add items, change quantities, remove products, and calculate totals.
+- **Persistent browser state:** retain cart contents after refresh with validated `localStorage` data.
+- **Responsive layout:** usable across mobile and desktop displays.
+- **English / Portuguese:** switch between both supported languages.
 
-HTML5 · CSS3 · JavaScript (ES6+) · localStorage · Playwright
+## Stack
 
-## Explore and run locally
+HTML5 · CSS3 · Vanilla JavaScript (ES6+) · Browser localStorage · Playwright
 
-The default `master` branch contains the reviewed storefront, automated browser tests, and bilingual cart implementation. The linked application provides the published interactive preview; implementation and verification details are documented below.
+## Explore WearTake
+
+**[Open the live storefront ↗](https://weartake-store-preview.vercel.app/)**
+
+Try filtering the catalog, adding products, and refreshing to see the cart remain available. Product prices and listings are sample data; the cart is a frontend interaction rather than a payment or order-processing flow.
+
+### Run locally
 
 ```bash
 git clone https://github.com/pedrohenriquebarrosn/WearTake-Store.git
@@ -37,16 +39,16 @@ python3 -m http.server 4173
 
 Open [http://localhost:4173](http://localhost:4173).
 
-## Engineering and verification
+## Engineering & verification
 
-- Automated browser tests exercise filtering, combined search, cart operations, cart persistence, images, and mobile layout.
-- The application uses only standard browser APIs and requires no runtime backend.
-- The product catalog is illustrative; cart interactions do not create real orders or process payments.
+- Browser tests cover filtering, text search, shopping-cart totals, quantity changes, removal, and persistence.
+- Responsive layout and product imagery were exercised in automated checks.
+- The interface uses standard browser APIs without a runtime backend.
 
----
+[**Review the recorded GitHub Actions run ↗**](https://github.com/pedrohenriquebarrosn/WearTake-Store/actions/runs/38476882022)
 
-## Author
+## About the developer
 
-**Pedro Henrique Barros Nascimento** — Business Administration graduate and Full Stack development alumnus of Kenzie Academy Brasil.
+**Pedro Henrique Barros Nascimento** — Full Stack Web Development training at Kenzie Academy Brasil; Business Administration coursework completed at UNIFG. Interested in applied AI, software development, and practical business solutions.
 
-[GitHub profile](https://github.com/pedrohenriquebarrosn) · [LinkedIn](https://www.linkedin.com/in/pedro-henrique-barros-nascimento-2bb684251/)
+[GitHub](https://github.com/pedrohenriquebarrosn) · [LinkedIn](https://www.linkedin.com/in/pedro-henrique-barros-nascimento-2bb684251/) · [Portfolio EN](https://portfolio-pedro-barros-2026-review.vercel.app/en) · [Portfólio PT](https://portfolio-pedro-barros-2026-review.vercel.app/pt)
